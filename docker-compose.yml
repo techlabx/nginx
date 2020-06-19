@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    nginx:
+        build:
+            context: .
+        restart: always
+        ports:
+        - "80:80"
+    
+    apiqqr:
+        build:
+            context: ../../api-qqr/
+        restart: always
+        ports:
+          - 8080:8080
+
+    auth:
+        build:
+            context: ../../oAuth/node-authentication-gateway
+        restart: always
+        ports:
+        - 3000:3000
